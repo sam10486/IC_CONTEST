@@ -1,0 +1,104 @@
+irun(64): 15.20-s084: (c) Copyright 1995-2020 Cadence Design Systems, Inc.
+TOOL:	irun(64)	15.20-s084: Started on Nov 16, 2025 at 21:50:42 CST
+irun
+	tb.v
+	huffman.v
+	+define+tb1+access+wrc
+file: tb.v
+`define tb1
+           |
+ncvlog: *W,MACNDF (tb.v,7|11): The text macro 'tb1' has also been defined on the command line using the -DEFINE command line option.  The compiler will ignore the definition found in the Verilog source code.
+	Total errors/warnings found outside modules and primitives:
+		errors: 0, warnings: 1
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+	Top level design units:
+		tb
+always @(*) begin
+       |
+ncelab: *W,STARMT (./huffman.v,37|7): This @* expands to empty list, will never wake up.
+	Building instance overlay tables: .................... Done
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		                  Instances  Unique
+		Modules:                  2       2
+		Registers:               23      23
+		Scalar wires:             5       -
+		Vectored wires:          27       -
+		Always blocks:            9       9
+		Initial blocks:           7       7
+		Cont. assignments:       25      26
+		Pseudo assignments:       1       1
+		Simulation timescale:  10ps
+	Writing initial simulation snapshot: worklib.tb:v
+Loading snapshot worklib.tb:v .................... Done
+*Verdi* Loading libsscore_ius152.so
+ncsim> source /usr/cad/cadence/INCISIV/INCISIVE_15.20.084/tools/inca/files/ncsimrc
+ncsim> run
+FSDB Dumper for IUS, Release Verdi_Q-2020.03, Linux x86_64/64bit, 02/09/2020
+(C) 1996 - 2020 by Synopsys, Inc.
+*Verdi* FSDB WARNING: The FSDB file already exists. Overwriting the FSDB file may crash the programs that are using this file.
+*Verdi* : Create FSDB file 'huffman.fsdb'
+*Verdi* : Begin traversing the scopes, layer (0).
+*Verdi* WARNING: [NoReadAccess][FilterOut]Name:tb.CLK(48)
+*Verdi* WARNING: [NoReadAccess][FilterOut]Name:tb.reset(48)
+*Verdi* WARNING: [NoReadAccess][FilterOut]Name:tb.gray_valid(48)
+*Verdi* WARNING: [NoReadAccess][FilterOut]Name:tb.gray_data(48)
+*Verdi* WARNING: [NoReadAccess][FilterOut]Name:tb.i(25)
+*Verdi* WARNING: [NoReadAccess][FilterOut]Name:tb.flag1(48)
+*Verdi* WARNING: [NoReadAccess][FilterOut]Name:tb.flag2(48)
+*Verdi* WARNING: [NoReadAccess][FilterOut]Name:tb.flag3(48)
+*Verdi* WARNING: [NoReadAccess][FilterOut]Name:tb.done1(48)
+*Verdi* WARNING: [NoReadAccess][FilterOut]Name:tb.CNT_valid(36)
+*Verdi* WARNING: [NoReadAccess][FilterOut]Name:tb.code_valid(36)
+*Verdi* WARNING: [NoReadAccess][FilterOut]Name:tb.CNT_G(36)
+*Verdi* WARNING: [NoReadAccess][FilterOut]Name:tb.CNT_EXP(36)
+*Verdi* WARNING: [NoReadAccess][FilterOut]Name:tb.HC_G(36)
+*Verdi* WARNING: [NoReadAccess][FilterOut]Name:tb.HC_EXP(36)
+*Verdi* WARNING: [NoReadAccess][FilterOut]Name:tb.M_G(36)
+*Verdi* WARNING: [NoReadAccess][FilterOut]Name:tb.M_EXP(36)
+*Verdi* WARNING: [NoReadAccess][FilterOut]Name:tb.CNT(114)
+*Verdi* WARNING: [NoReadAccess][FilterOut]Name:tb.HC(114)
+*Verdi* WARNING: [NoReadAccess][FilterOut]Name:tb.M(114)
+*Verdi* WARNING: [NoReadAccess][FilterOut]Name:tb.u_huffman.CNT_valid(48)
+*Verdi* WARNING: [NoReadAccess][FilterOut]Name:tb.u_huffman.code_valid(48)
+*Verdi* WARNING: [NoReadAccess][FilterOut]Name:tb.u_huffman.gray_cnt(116)
+*Verdi* WARNING: [NoReadAccess][FilterOut]Name:tb.u_huffman.group_member(116)
+*Verdi* WARNING: [NoReadAccess][FilterOut]Name:tb.u_huffman.group_num(48)
+*Verdi* WARNING: [NoReadAccess][FilterOut]Name:tb.u_huffman.cur_state(48)
+*Verdi* WARNING: [NoReadAccess][FilterOut]Name:tb.u_huffman.nxt_state(48)
+*Verdi* WARNING: [NoReadAccess][FilterOut]Name:tb.u_huffman.sort_cnt(48)
+*Verdi* WARNING: [NoReadAccess][FilterOut]Name:tb.u_huffman.rst_cnt(48)
+*Verdi* WARNING: [NoReadAccess][FilterOut]Name:tb.u_huffman.HC(116)
+*Verdi* WARNING: [NoReadAccess][FilterOut]Name:tb.u_huffman.M(116)
+*Verdi* WARNING: [NoReadAccess][FilterOut]Name:tb.u_huffman.i(25)
+*Verdi* WARNING: [NoReadAccess][FilterOut]Name:tb.u_huffman.clk(36)
+*Verdi* WARNING: [NoReadAccess][FilterOut]Name:tb.u_huffman.reset(36)
+*Verdi* WARNING: [NoReadAccess][FilterOut]Name:tb.u_huffman.gray_valid(36)
+*Verdi* WARNING: [NoReadAccess][FilterOut]Name:tb.u_huffman.gray_data(36)
+*Verdi* WARNING: [NoReadAccess][FilterOut]Name:tb.u_huffman.CNT1(36)
+*Verdi* WARNING: [NoReadAccess][FilterOut]Name:tb.u_huffman.CNT2(36)
+*Verdi* WARNING: [NoReadAccess][FilterOut]Name:tb.u_huffman.CNT3(36)
+*Verdi* WARNING: [NoReadAccess][FilterOut]Name:tb.u_huffman.CNT4(36)
+*Verdi* WARNING: [NoReadAccess][FilterOut]Name:tb.u_huffman.CNT5(36)
+*Verdi* WARNING: [NoReadAccess][FilterOut]Name:tb.u_huffman.CNT6(36)
+*Verdi* WARNING: [NoReadAccess][FilterOut]Name:tb.u_huffman.HC1(36)
+*Verdi* WARNING: [NoReadAccess][FilterOut]Name:tb.u_huffman.HC2(36)
+*Verdi* WARNING: [NoReadAccess][FilterOut]Name:tb.u_huffman.HC3(36)
+*Verdi* WARNING: [NoReadAccess][FilterOut]Name:tb.u_huffman.HC4(36)
+*Verdi* WARNING: [NoReadAccess][FilterOut]Name:tb.u_huffman.HC5(36)
+*Verdi* WARNING: [NoReadAccess][FilterOut]Name:tb.u_huffman.HC6(36)
+*Verdi* WARNING: [NoReadAccess][FilterOut]Name:tb.u_huffman.M1(36)
+*Verdi* WARNING: [NoReadAccess][FilterOut]Name:tb.u_huffman.M2(36)
+*Verdi* WARNING: [NoReadAccess][FilterOut]Name:tb.u_huffman.M3(36)
+*Verdi* WARNING: [NoReadAccess][FilterOut]Name:tb.u_huffman.M4(36)
+*Verdi* WARNING: [NoReadAccess][FilterOut]Name:tb.u_huffman.M5(36)
+*Verdi* WARNING: [NoReadAccess][FilterOut]Name:tb.u_huffman.M6(36)
+*Verdi* WARNING: [NoReadAccess][FilterOut]Name:tb.u_huffman.last(36)
+*Verdi* WARNING: [NoReadAccess][FilterOut]Name:tb.u_huffman.second_last(36)
+*Verdi* : End of traversing.
+./pattern1.dat and ./golden1.dat were used for this simulation.
+Simulation interrupted at 154903925 NS + 1
+ncsim> exit
+TOOL:	irun(64)	15.20-s084: Exiting on Nov 16, 2025 at 21:50:46 CST  (total: 00:00:04)

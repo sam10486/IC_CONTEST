@@ -1,0 +1,10 @@
+Command Line: /usr/cad/synopsys/verdi/cur/platform/LINUXAMD64/bin/Novas -sv huffman.v tb.v
+uname(Linux vlsiws 3.10.0-1160.el7.x86_64 #1 SMP Mon Oct 19 16:18:59 UTC 2020 x86_64)
+Disabled Warning Message: Failed to add certain signals to waveform because they cannot be found in waveform file, check "List of Signal(s) Not Found".  
+Disabled Warning Message: Failed to add certain signals to waveform because they cannot be found in waveform file, check "List of Signal(s) Not Found".  
+Disabled Warning Message: Failed to add certain signals to waveform because they cannot be found in waveform file, check "List of Signal(s) Not Found".  
+Disabled Warning Message: Failed to add certain signals to waveform because they cannot be found in waveform file, check "List of Signal(s) Not Found".  
+Disabled Warning Message: Failed to add certain signals to waveform because they cannot be found in waveform file, check "List of Signal(s) Not Found".  
+Disabled Warning Message: Failed to add certain signals to waveform because they cannot be found in waveform file, check "List of Signal(s) Not Found".  
+Disabled Warning Message: Failed to add certain signals to waveform because they cannot be found in waveform file, check "List of Signal(s) Not Found".  
+Disabled Warning Message: Failed to add certain signals to waveform because they cannot be found in waveform file, check "List of Signal(s) Not Found".  
