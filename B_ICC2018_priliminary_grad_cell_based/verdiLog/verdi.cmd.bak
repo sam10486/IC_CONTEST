@@ -1,2 +1,0 @@
-debImport "-v" "tb.v" "huffman.v"
-debExit

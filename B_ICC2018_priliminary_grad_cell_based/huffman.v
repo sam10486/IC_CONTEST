@@ -29,24 +29,26 @@ reg [7:0] HC [1:6]; //  A1, A2, A3, A4, A5, A6
 reg [7:0] M  [1:6]; //  A1, A2, A3, A4, A5, A6
 
 wire [2:0] last, second_last;
+reg [6:0] one_hot_shift;
 integer i;
 
 assign last = group_num;
 assign second_last = group_num - 'd1;
 
+wire [7:0] M_next [1:6];
 
-always @(posedge clk or posedge reset) begin
-    if (reset) begin
-        for (i = 1; i <= 6; i=i+1) begin
-            group_member[i] <= 'd0;
-        end
+genvar k;
+generate
+    for (k = 1; k <= 6; k=k+1) begin:M_nxt
+        assign M_next[k] = {M[k][6:0], 1'b1};
+    end
+endgenerate
+
+always @(*) begin
+    if (cur_state == COMB) begin
+        one_hot_shift = 7'b1 << (6-last);
     end else begin
-        group_member[1] <= 6'b00_0001;
-        group_member[2] <= 6'b00_0010;
-        group_member[3] <= 6'b00_0100;
-        group_member[4] <= 6'b00_1000;
-        group_member[5] <= 6'b01_0000;
-        group_member[6] <= 6'b10_0000;
+        one_hot_shift = 7'b0;
     end
 end
 
@@ -71,7 +73,7 @@ end
 
 always @(posedge clk or posedge reset) begin
     if (reset) begin
-        nxt_state <= 'd0;
+        cur_state <= 'd0;
     end else begin
         cur_state <= nxt_state;
     end
@@ -83,6 +85,13 @@ always @(posedge clk or posedge reset) begin
             gray_cnt[i] <= 'd0;
         end
         group_num <= 'd6;
+        group_member[1] <= 6'b00_0001;
+        group_member[2] <= 6'b00_0010;
+        group_member[3] <= 6'b00_0100;
+        group_member[4] <= 6'b00_1000;
+        group_member[5] <= 6'b01_0000;
+        group_member[6] <= 6'b10_0000;
+
     end else begin
         case (cur_state)
             IDLE: begin
@@ -153,16 +162,16 @@ always @(posedge clk or posedge reset) begin
             end
             COMB: begin
                 for(i=1; i <=6; i=i+1) begin
-                    if(group_member[last][i] == 1) begin
-                        HC[i] <= {HC[i][6:0], 1'b1};
+                    if(group_member[last][i-1] == 1) begin
+                        HC[i] <= HC[i] | {M[i] ^ M_next[i] };
                         M[i]  <= {M[i][6:0], 1'b1};
-                    end else if(group_member[second_last][i] == 1) begin
-                        HC[i] <= {HC[i][6:0], 1'b0};
+                    end else if(group_member[second_last][i-1] == 1) begin
+                        HC[i] <= HC[i] ;
                         M[i]  <= {M[i][6:0], 1'b1};
                     end 
                 end
-                gray_cnt[second_last] = gray_cnt[second_last] + gray_cnt[last];
-                group_member[second_last] = group_member[last] | group_member[second_last];
+                gray_cnt[second_last] <= gray_cnt[second_last] + gray_cnt[last];
+                group_member[second_last] <= group_member[last] | group_member[second_last];
                 group_num <= (group_num == 'd2) ? group_num : group_num - 'd1;
                 code_valid <= 'd0;
                 CNT_valid <= 'd0;
